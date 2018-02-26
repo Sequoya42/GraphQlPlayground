@@ -1,8 +1,8 @@
 <template>
-<div class="hello">
-
-  <Basic></Basic>
+<div>
+  <Basic/>
   <WithLink/>
+  <VueApollo/>
 </div>
 </template>
 
@@ -12,18 +12,7 @@ import gql from 'graphql-tag';
 
 import Basic from '@/components/GraphqlBasic';
 import WithLink from '@/components/GraphqlWithLink';
-const number_of_repos = 3;
-const query = gql `{
-	viewer {
-	    name
-	     repositories(last: ${number_of_repos}) {
-	       nodes {
-	         name
-	       }
-	     }
-	   }
-}`;
-
+import VueApollo from '@/components/GraphqlVueApollo';
 export default {
 
   name: 'hello',
@@ -34,29 +23,11 @@ export default {
   },
   components: {
     Basic,
-    WithLink
+    WithLink,
+    VueApollo
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-h1,
-h2 {
-  font-weight: normal;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #35495E;
-}
 </style>

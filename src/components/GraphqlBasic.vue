@@ -43,7 +43,6 @@ export default {
           }
         }
       })
-      console.log(res.data.viewer);
       this.viewer = res.data.viewer.repositories.nodes.map(e => e.name);
     }
   }

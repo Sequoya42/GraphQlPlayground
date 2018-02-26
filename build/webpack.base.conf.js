@@ -20,23 +20,22 @@ module.exports = {
       config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', '.graphql'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src')
     }
   },
   module: {
-    loaders: [{
-      test: /\.(graphql|gql)$/,
-      exclude: /node_modules/,
-      loader: 'graphql-tag/loader'
-    }],
     rules: [{
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
+			{
+         test: /\.graphql$/,
+         loader: 'graphql-tag/loader',
+       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
