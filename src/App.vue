@@ -4,7 +4,8 @@
     <span>Vue.js PWA</span>
   </header>
   <main>
-		<h1>Require a .env file at the root of the repository</h1>
+		<h1>See readme for api key</h1>
+		<hr />
     <router-view></router-view>
   </main>
 </div>

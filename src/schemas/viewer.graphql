@@ -1,3 +1,4 @@
+
 query LastRepo($number_of_repos:Int!) {
 	viewer {
 	    name
@@ -7,4 +8,19 @@ query LastRepo($number_of_repos:Int!) {
 	       }
 	     }
 	   }
+}
+
+query SearchStar{
+  search(type: REPOSITORY, query: "user:sequoya42 sort:stars-desc", first: 6) {
+    edges {
+      node {
+        ... on Repository {
+          name
+          stargazers {
+            totalCount
+          }
+        }
+      }
+    }
+  }
 }

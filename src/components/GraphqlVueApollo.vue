@@ -5,33 +5,47 @@
 	</h1> -->
   <h1>VueApollo</h1>
 	 {{viewer}}
+	 <p>
+		----------
+	 </p>
+<div v-for="star in stars">
+	{{star[0]}} : {{star[1]}}
+</div>
 </div>
 </template>
 
 <script>
-import {LastRepo} from '@/schemas/viewer.graphql';
+import {LastRepo, SearchStar} from '@/schemas/viewer.graphql';
 
-const query = ''
 export default {
   name: 'VueApollo',
   data: function() {
     return {
       viewer: '',
+			stars: [],
 			test: LastRepo
     }
   },
-  mounted() {},
+  mounted() {
+		console.log(this.test)
+	},
   apollo: {
     viewer: {
 			query: LastRepo,
     variables: {
       number_of_repos: 3
     },
-		update(data) {
+		result(data) { 
 			console.log(data)
-			return data.viewer.repositories.nodes.map(e => e.name)
+			this.viewer = data.data.viewer.repositories.nodes.map(e => e.name)
 		}
-  }
+  },
+	stars: {
+		query: SearchStar,
+		update(data) {
+			return data.search.edges.map(e => [e.node.name, e.node.stargazers.totalCount])
+		}
+	}
 },
   methods: {}
 }
