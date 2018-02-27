@@ -35,8 +35,7 @@ export default {
     variables: {
       number_of_repos: 3
     },
-		result(data) { 
-			console.log(data)
+		result(data) {
 			this.viewer = data.data.viewer.repositories.nodes.map(e => e.name)
 		}
   },
