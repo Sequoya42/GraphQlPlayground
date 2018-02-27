@@ -2,6 +2,13 @@
 
 > A Vue.js project
 
+```
+Require a .env file at the root of the repository
+containing your public github api key
+see https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/
+```
+
+
 ## Build Setup
 
 ``` bash
