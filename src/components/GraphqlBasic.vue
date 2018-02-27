@@ -8,7 +8,8 @@
 import graphql from '@/utils/graphqlBasic';
 import gql from 'graphql-tag';
 import env from '../../.env';
-const query = gql ` query ($number_of_repos:Int!){
+
+const query = gql ` query LastRepo($number_of_repos:Int!){
 	viewer {
 	    name
 	     repositories(last: $number_of_repos) {

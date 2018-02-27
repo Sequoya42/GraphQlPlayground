@@ -4,8 +4,7 @@
     <span>Vue.js PWA</span>
   </header>
   <main>
-    <img src="./assets/logo.png"
-      alt="Vue.js PWA">
+		<h1>Require a .env file at the root of the repository</h1>
     <router-view></router-view>
   </main>
 </div>

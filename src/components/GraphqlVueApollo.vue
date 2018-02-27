@@ -1,44 +1,29 @@
 <template>
 <div>
-  <h1>VueApollo</h1> {{viewer}}
+	<!-- <h1>
+		ici {{test}}
+	</h1> -->
+  <h1>VueApollo</h1>
+	 {{viewer}}
 </div>
 </template>
 
 <script>
-// import graphql from '@/utils/graphql';
-import gql from 'graphql-tag';
-// import test from '../graphql/github.graphql';
-// const query = gql `query($number_of_repos:Int!){
-// 	viewer {
-// 	    name
-// 	     repositories(last: $number_of_repos) {
-// 	       nodes {
-// 	         name
-// 	       }
-// 	     }
-// 	   }
-// }`;
+import {LastRepo} from '@/schemas/viewer.graphql';
 
+const query = ''
 export default {
   name: 'VueApollo',
   data: function() {
     return {
       viewer: '',
+			test: LastRepo
     }
   },
   mounted() {},
   apollo: {
     viewer: {
-			query: gql` query Stuff($number_of_repos:Int!){
-			viewer {
-			    name
-			     repositories(last: $number_of_repos) {
-			       nodes {
-			         name
-			       }
-			     }
-			   }
-		}`,
+			query: LastRepo,
     variables: {
       number_of_repos: 3
     },

@@ -27,15 +27,17 @@ module.exports = {
     }
   },
   module: {
-    rules: [{
+    rules: [
+			{
+				test: /\.(graphql|gql)$/,
+				exclude: /node_modules/,
+				loader: 'graphql-tag/loader',
+			},
+			{
         test: /\.vue$/,
         loader: 'vue-loader',
         options: vueLoaderConfig
       },
-			{
-         test: /\.graphql$/,
-         loader: 'graphql-tag/loader',
-       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
